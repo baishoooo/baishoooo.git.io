@@ -19,22 +19,12 @@
             font-style: normal;
         }
 
-        /* Ajout d'une image en arrière-plan */
         body {
             margin: 0;
             padding: 0;
             font-family: 'Benzin', Arial, sans-serif;
             font-weight: bold;
-            background-color: #000000;
-            background-image: url('image/background.jpg'); /* Chemin de l'image d'arrière-plan */
-            background-size: cover; /* Ajuste l'image pour couvrir tout l'écran */
-            background-position: center; /* Centre l'image */
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            color: white;
+            background-color: #333;
         }
 
         .header-text {
@@ -52,7 +42,6 @@
             left: 10px;
             width: 200px;
             height: auto;
-            cursor: pointer;
         }
 
         .contact-button {
@@ -68,86 +57,58 @@
             text-decoration: none;
         }
 
-        .square-container {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 20px;
-            margin-top: 100px;
-        }
-
-        .square {
-            width: 100px;
-            height: 100px;
-            background-color: #555;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            border: 2px solid white;
-            transition: background-color 0.3s, transform 0.3s;
-            background-size: cover;
-            background-position: center;
-        }
-
-        .square:hover {
-            background-color: #777;
-            transform: scale(1.1);
-        }
-
-        .video-player {
-            display: none; /* Masque le lecteur vidéo par défaut */
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            z-index: 10;
-        }
-
-        .video-small {
-            width: 800px; /* Augmentation de la largeur */
-            height: 500px; /* Augmentation de la hauteur */
-        }
-
-        .close-button {
-            position: absolute;
-            top: -30px;
-            right: 0;
-            background-color: red;
+        .content {
+            text-align: center;
+            margin-top: 20%;
             color: white;
-            border: none;
-            padding: 10px;
+        }
+
+        .video-background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -1;
+        }
+
+        .bottom-button {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            padding: 10px 20px; /* Ajusté pour encadrer le texte de près */
+            font-size: 18px;
+            color: white;
+            background-color: transparent; /* Fond transparent pour que seule la bordure soit visible */
+            border: 1px solid white; /* Bordure fine autour du texte */
+            border-radius: 10px;
             cursor: pointer;
+            text-decoration: none;
+        }
+
+        
+        .botto-button {
+            position: absolute;
+            bottom: 80px;
+            left: 50%;
+            transform: translateX(-50%);
+            padding: 10px 20px; /* Ajusté pour encadrer le texte de près */
+            font-size: 18px;
+            color: white;
+            background-color: transparent; /* Fond transparent pour que seule la bordure soit visible */
+            border: 1px solid white; /* Bordure fine autour du texte */
+            border-radius: 10px;
+            cursor: pointer;
+            text-decoration: none;
         }
     </style>
-    <script>
-        function openVideo(videoUrl) {
-            var videoPlayer = document.getElementById('videoPlayer');
-            var videoElement = videoPlayer.querySelector('video'); // Cible l'élément vidéo
-            var videoSource = document.getElementById('videoSource');
-            videoSource.src = videoUrl;
-            videoElement.load(); // Charge la nouvelle source vidéo
-
-            // Applique la classe video-small pour que la vidéo s'affiche en petit
-            videoElement.classList.add('video-small');
-
-            videoPlayer.style.display = 'block';
-        }
-
-        function closeVideo() {
-            var videoPlayer = document.getElementById('videoPlayer');
-            var videoElement = videoPlayer.querySelector('video');
-            videoElement.pause(); // Pause la vidéo en cours
-            videoPlayer.style.display = 'none';
-        }
-    </script>
 </head>
 <body>
 
-    <!-- Logo en haut à gauche avec lien vers la page principale -->
-    <a href="Untitled-1.html">
-        <img src="video/logo2.png" alt="Logo" class="logo">
-    </a>
+    <!-- Logo en haut à gauche -->
+    <img src="video/logo.png" alt="Logo" class="logo">
 
     <!-- Texte en haut au milieu du site -->
     <div class="header-text">
@@ -157,24 +118,23 @@
     <!-- Bouton de contact en haut à droite -->
     <a href="contact.html" class="contact-button">Contact</a>
 
-    <!-- Conteneur des carrés -->
-    <div class="square-container">
-        <div class="square" style="background-image: url('video/4.png');" onclick="openVideo('video/Cameo_Citrus_AMV_1.mp4')"></div>
-        <div class="square" style="background-image: url('video/1.png');" onclick="openVideo('video/jakemail (1).mp4')"></div>
-        <div class="square" style="background-image: url('video/2.png');" onclick="openVideo('video/JE CONDUIS UNE GT3 RS POUR LA PREMIERE FOIS.mp4')"></div>
-        <div class="square" style="background-image: url('video/6.png');" onclick="openVideo('video/Snaptik_7307716097283837230_luvos-studios.mp4')"></div>
-        <div class="square" style="background-image: url('video/3.png');" onclick="openVideo('video/sosh.mp4')"></div>
-        <div class="square" style="background-image: url('video/5.png');" onclick="openVideo('video/SUPRA - GOD OF SPEED EDIT ⚡️ (1).mp4')"></div>
-    </div>
+    <!-- Vidéo en arrière-plan -->
+    <video autoplay muted loop class="video-background">
+        <source src="video/intro.mp4" type="video/mp4">
+        Votre navigateur ne supporte pas la vidéo.
+    </video>
 
-    <!-- Lecteur vidéo -->
-    <div id="videoPlayer" class="video-player">
-        <button class="close-button" onclick="closeVideo()">Fermer</button>
-        <video controls class="video-small">
-            <source id="videoSource" src="" type="video/mp4">
-            Votre navigateur ne supporte pas la vidéo.
-        </video>
-    </div>
+    <button onclick="toggleSound()" class="botto-button">🔊</button>
+
+<script>
+    function toggleSound() {
+        var video = document.querySelector(".video-background");
+        video.muted = !video.muted; // Active ou coupe le son
+    }
+</script>
+
+    <!-- Bouton en bas au milieu -->
+    <a href="autre-page.html" class="bottom-button">Voir Plus</a>
 
 </body>
 </html>
