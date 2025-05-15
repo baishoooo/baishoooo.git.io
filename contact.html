@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact</title>
+
+    <!-- Style pour la vidéo en arrière-plan, le contenu et le logo -->
+    <style>
+        @font-face {
+            font-family: 'Benzin';
+            src: url('style.css/Benzin-Bold.ttf') format('truetype');
+            font-weight: bold;
+            font-style: normal;
+        }
+
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            overflow: hidden;
+            font-family: 'Benzin', Arial, sans-serif;
+        }
+
+        .video-background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -1;
+        }
+
+        .content {
+            position: relative;
+            z-index: 1;
+            color: white;
+            text-align: center;
+            margin-top: 20%;
+        }
+
+        .logo {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            width: 200px;
+            height: auto;
+            cursor: pointer;
+            z-index: 2; /* Assure que le logo est au-dessus de la vidéo */
+        }
+
+        .contact-info {
+            position: fixed;
+            bottom: 80px;
+            width: 100%;
+            text-align: center;
+            font-family: 'Benzin', Arial, sans-serif;
+            font-size: 12px;
+            color: white;
+            z-index: 2; /* Assure que le texte est au-dessus de la vidéo */
+        }
+
+        .social-icons {
+            margin-top: 10px;
+        }
+
+        .social-icons a {
+            margin: 0 10px;
+            display: inline-block;
+        }
+
+        .social-icons img {
+            width: 30px;
+            height: auto;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Logo en haut à gauche avec lien vers la page principale -->
+    <a href="Untitled-1.html">
+        <img src="video/logo.png" alt="Logo" class="logo">
+    </a>
+
+    <!-- Vidéo en arrière-plan -->
+    <video autoplay muted loop class="video-background">
+        <source src="video/Composition 1.mp4" type="video/mp4">
+        Votre navigateur ne supporte pas la vidéo HTML5.
+    </video>
+
+    <!-- Texte de contact en bas de la page -->
+    <div class="contact-info">
+        Contact: qobaichem3101@gmail.com
+        <div class="social-icons">
+            <!-- Logo Behance -->
+            <a href="https://www.behance.net/your-behance-profile" target="_blank">
+                <img src="video/behance-logo.png" alt="Behance Logo">
+            </a>
+            <!-- Logo LinkedIn -->
+            <a href="https://www.linkedin.com/in/your-linkedin-profile" target="_blank">
+                <img src="video/linkedin-logo.png" alt="LinkedIn Logo">
+            </a>
+        </div>
+    </div>
+
+</body>
+</html>
