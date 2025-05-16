@@ -78,31 +78,33 @@
             bottom: 30px;
             left: 50%;
             transform: translateX(-50%);
-            padding: 10px 20px;
+            padding: 10px 20px; /* Ajusté pour encadrer le texte de près */
             font-size: 18px;
             color: white;
-            background-color: transparent;
-            border: 1px solid white;
+            background-color: transparent; /* Fond transparent pour que seule la bordure soit visible */
+            border: 1px solid white; /* Bordure fine autour du texte */
             border-radius: 10px;
             cursor: pointer;
             text-decoration: none;
         }
 
+        
         .botto-button {
             position: absolute;
             bottom: 80px;
             left: 50%;
             transform: translateX(-50%);
-            padding: 10px 20px;
+            padding: 10px 20px; /* Ajusté pour encadrer le texte de près */
             font-size: 18px;
             color: white;
-            background-color: transparent;
-            border: 1px solid white;
+            background-color: transparent; /* Fond transparent pour que seule la bordure soit visible */
+            border: 1px solid white; /* Bordure fine autour du texte */
             border-radius: 10px;
             cursor: pointer;
             text-decoration: none;
         }
     </style>
+    
 </head>
 <body>
 
@@ -117,20 +119,20 @@
     <!-- Bouton de contact en haut à droite -->
     <a href="contact.html" class="contact-button">Contact</a>
 
-    <!-- Vidéo en arrière-plan depuis Google Drive -->
+    <!-- Vidéo en arrière-plan -->
     <video autoplay muted loop class="video-background">
-        <source src="https://drive.google.com/uc?export=download&id=14e5qqnZj3ahWwHA8auvU89P5CMxVlWP6" type="video/mp4">
+        <source src="back/intro.mp4" type="video/mp4">
         Votre navigateur ne supporte pas la vidéo.
     </video>
 
     <button onclick="toggleSound()" class="botto-button">🔊</button>
 
-    <script>
-        function toggleSound() {
-            var video = document.querySelector(".video-background");
-            video.muted = !video.muted;
-        }
-    </script>
+<script>
+    function toggleSound() {
+        var video = document.querySelector(".video-background");
+        video.muted = !video.muted; // Active ou coupe le son
+    }
+</script>
 
     <!-- Bouton en bas au milieu -->
     <a href="autre-page.html" class="bottom-button">Voir Plus</a>
